@@ -2429,7 +2429,38 @@ header .header-logo a {
 }
 
 /* ===================================================================
- *  13. portfolio2 - (_layout.scss)
+ *  13. portfolio - (_layout.scss)
+ *
+ * ------------------------------------------------------------------- */
+#portfolio {
+	background: #EBEBEB;
+	min-height: 500px;
+	position: relative;
+	padding: 12rem 0 15rem;
+}
+
+#portfolio .bricks-wrapper:before,
+#portfolio2 .bricks-wrapper:after {
+	content: "";
+	display: table;
+}
+
+#portfolio .bricks-wrapper:after {
+	clear: both;
+}
+
+#portfolio .bricks-wrapper .brick {
+	float: left;
+	width: 30%;
+	padding: 0;
+	margin: 0;
+}
+
+#portfolio .bricks-wrapper .brick:nth-child(2n+1) {
+	clear: both;
+}
+
+ /*  13. portfolio2 - (_layout.scss)
  *
  * ------------------------------------------------------------------- */
 #portfolio2 {
@@ -2460,38 +2491,7 @@ header .header-logo a {
 	clear: both;
 }
 
- *  13. portfolio2 - (_layout.scss)
- *
- * ------------------------------------------------------------------- */
-#portfolio2 {
-	background: #EBEBEB;
-	min-height: 500px;
-	position: relative;
-	padding: 12rem 0 15rem;
-}
-
-#portfolio2 .bricks-wrapper:before,
-#portfolio2 .bricks-wrapper:after {
-	content: "";
-	display: table;
-}
-
-#portfolio2 .bricks-wrapper:after {
-	clear: both;
-}
-
-#portfolio2 .bricks-wrapper .brick {
-	float: left;
-	width: 30%;
-	padding: 0;
-	margin: 0;
-}
-
-#portfolio2 .bricks-wrapper .brick:nth-child(2n+1) {
-	clear: both;
-}
-
- *  13. portfolio3 - (_layout.scss)
+ /*  13. portfolio3 - (_layout.scss)
  *
  * ------------------------------------------------------------------- */
 #portfolio3 {
