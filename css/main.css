@@ -2460,6 +2460,22 @@ header .header-logo a {
 	clear: both;
 }
 
+
+/* เดิม: #portfolio { … } */
+.portfolio-section{ background:#EBEBEB; min-height:500px; position:relative; padding:12rem 0 15rem; }
+
+/* เดิม: #portfolio .bricks-wrapper:before/after */
+.portfolio-section .bricks-wrapper:before,
+.portfolio-section .bricks-wrapper:after{ content:""; display:table; }
+.portfolio-section .bricks-wrapper:after{ clear:both; }
+
+/* เดิม: #portfolio .bricks-wrapper .brick */
+.portfolio-section .bricks-wrapper .brick{ float:left; width:30%; padding:0; margin:0; }
+@media (max-width:600px){
+  .portfolio-section .bricks-wrapper .brick{ float:none; width:100%; }
+}
+
+
  
 
 /* ------------------------------------------------------------------- 
