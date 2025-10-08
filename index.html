@@ -856,6 +856,154 @@
 
 
 	
+
+
+
+
+
+
+
+
+<!-- Gallery ใหม่
+   ================================================== -->
+<section id="works" class="section">
+  <div class="wrap">
+    <header class="section-head">
+      <h2>Gallery</h2>
+      <p class="muted">เลือกดูงานตามหมวด — Minimal, โหลดไว, พร้อมใช้บนมือถือ</p>
+      <div class="tabs" role="tablist" aria-label="Gallery categories">
+        <button class="tab is-active" data-target="artist" role="tab" aria-selected="true">Artist</button>
+        <button class="tab" data-target="ai" role="tab" aria-selected="false">AI Prompt Engineer</button>
+      </div>
+    </header>
+
+    <!-- Artist Gallery -->
+    <div class="gallery-grid is-active" data-cat="artist" role="tabpanel" aria-label="Artist gallery">
+      <!-- ชิ้นงาน 1 -->
+      <figure class="card">
+        <a href="images/portfolio/bb1.jpg" target="_blank" rel="noopener">
+          <picture>
+            <source srcset="images/portfolio/bs1.jpg 1200w,
+                            images/portfolio/bs1.jpg 800w,
+                            images/portfolio/bs1.jpg 480w" type="image/jpg">
+            <img
+              src="images/portfolio/bs1.jpg"
+              srcset="images/portfolio/bs1.jpg 1200w,
+                      images/portfolio/bs1.jpg 800w,
+                      images/portfolio/bs1.jpg 480w"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 360px"
+              width="800" height="600" loading="lazy" alt="งานวาดแนวมินิมอล สีขาวเทา โทนมืออาชีพ">
+          </picture>
+        </a>
+        <figcaption>
+          <h3>Minimal Poster Study</h3>
+          <p class="tags">#poster #typography #minimal</p>
+        </figcaption>
+      </figure>
+
+      <!-- ชิ้นงาน 2 -->
+      <figure class="card">
+        <a href="images/portfolio/bb2.jpg" target="_blank" rel="noopener">
+          <picture>
+            <source srcset="images/portfolio/bs2.jpg 1200w,
+                            images/portfolio/bs2.jpg 800w,
+                            images/portfolio/bs2.jpg 480w" type="image/jpg">
+            <img
+              src="images/portfolio/as2.jpg"
+              srcset="images/portfolio/bs2.jpg 1200w,
+                      images/portfolio/bs2.jpg 800w,
+                      images/portfolio/b2.jpg 480w"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 360px"
+              width="800" height="600" loading="lazy" alt="งานภาพประกอบ brush stroke ผสม grid ดีไซน์">
+          </picture>
+        </a>
+        <figcaption>
+          <h3>Grid × Brush</h3>
+          <p class="tags">#illustration #grid #texture</p>
+        </figcaption>
+      </figure>
+
+      <!-- เพิ่มการ์ดต่อไปตามต้องการ -->
+    </div>
+
+    <!-- AI Prompt Engineer Gallery -->
+    <div class="gallery-grid" data-cat="ai" role="tabpanel" aria-label="AI prompt gallery" hidden>
+      <!-- ชิ้นงาน 1 -->
+      <figure class="card">
+        <a href="images/portfolio/ab1.jpg" target="_blank" rel="noopener">
+          <picture>
+            <source srcset="images/portfolio/as1.jpg 1200w,
+                            images/portfolio/as1.jpg 800w,
+                            images/portfolio/as1.jpg 480w" type="image/jpg">
+            <img
+              src="images/portfolio/as1.jpg"
+              srcset="images/portfolio/as1.jpg 1200w,
+                      images/portfolio/as1.jpg 800w,
+                      images/portfolio/as1.jpg 480w"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 360px"
+              width="800" height="600" loading="lazy" alt="ภาพจาก AI prompt โทนขาวมินิมอล">
+          </picture>
+        </a>
+        <figcaption>
+          <h3>MJ Prompt: Minimal Desk</h3>
+          <p class="tags">#midjourney #white #workspace</p>
+        </figcaption>
+      </figure>
+
+      <!-- ชิ้นงาน 2 -->
+      <figure class="card">
+         <a href="images/portfolio/ab2.jpg" target="_blank" rel="noopener">
+          <picture>
+            <source srcset="images/portfolio/as2.jpg 1200w,
+                            images/portfolio/as2.jpg 800w,
+                            images/portfolio/as2.jpg 480w" type="image/jpg">
+            <img
+              src="images/portfolio/as2.jpg"
+              srcset="images/portfolio/as2.jpg 1200w,
+                      images/portfolio/as2.jpg 800w,
+                      images/portfolio/as2.jpg 480w"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 360px"
+              width="800" height="600" loading="lazy" alt="หน้าจอคอมเปิดโปรแกรมออกแบบ">
+          </picture>
+        </a>
+        <figcaption>
+          <h3>MJ Prompt: Screen Focus</h3>
+          <p class="tags">#tools #photoshop #figma</p>
+        </figcaption>
+      </figure>
+
+      <!-- เพิ่มการ์ดต่อไปตามต้องการ -->
+    </div>
+  </div>
+</section>
+
+<script>
+  // Toggle แท็บ Artist / AI
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.tabs .tab');
+    const grids = document.querySelectorAll('.gallery-grid');
+
+    tabs.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // ปุ่ม
+        tabs.forEach(b => { b.classList.remove('is-active'); b.setAttribute('aria-selected','false'); });
+        btn.classList.add('is-active'); btn.setAttribute('aria-selected','true');
+
+        // กริด
+        const target = btn.dataset.target;
+        grids.forEach(g => {
+          const match = g.dataset.cat === target;
+          g.classList.toggle('is-active', match);
+          g.hidden = !match;
+        });
+      });
+    });
+  });
+</script>
+
+	
+
+
 	
 	
 	
