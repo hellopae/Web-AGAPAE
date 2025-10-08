@@ -3164,4 +3164,58 @@ footer .footer-social li:last-child {
 		right: 0;
 	}
 
+
+
+
+
+
+/* ------------------------------------------------------------------- 
+ * ลอง code ใหม่
+ * ------------------------------------------------------------------- */
+	/* โครงหน้ากว้าง */
+.wrap { max-width: 1120px; margin-inline: auto; padding: 24px; }
+.section-head { margin-bottom: 12px; }
+.section-head h2 { font-size: clamp(24px, 2.8vw, 32px); margin: 0 0 6px; }
+.muted { color: #9aa7b5; }
+
+/* ปุ่มแท็บ */
+.tabs { display: inline-flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+.tab {
+  appearance: none; border: 1px solid #dbe1e7; background: #fff; color: #0e1216;
+  padding: 8px 14px; border-radius: 999px; cursor: pointer; font-weight: 600;
+}
+.tab.is-active { background: #0e1216; color: #fff; border-color: transparent; }
+
+/* กริดรูป */
+.gallery-grid {
+  display: grid; gap: 14px; margin-top: 18px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  transition: opacity .2s ease;
+}
+.gallery-grid:not(.is-active) { opacity: 0; }
+.card {
+  background: #fff; border: 1px solid #e8ecf1; border-radius: 14px; overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0,0,0,.03);
+}
+.card a { display: block; line-height: 0; }
+.card picture, .card img { display: block; width: 100%; height: auto; }
+
+/* รักษาสัดส่วนรูปให้กริดนิ่ง (ถ้าไม่มีขนาด img ชัดเจน) */
+.card picture { aspect-ratio: 4/3; background: #f6f8fb; }
+
+/* แคปชัน */
+.card figcaption { padding: 10px 12px 12px; }
+.card h3 { font-size: 16px; margin: 0 0 4px; line-height: 1.35; color: #0e1216; }
+.card .tags { margin: 0; font-size: 13px; color: #6b7682; }
+
+/* โฮเวอร์เล็กน้อย */
+.card:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,.06); transition: .18s; }
+
+/* โหมดมืด (ถ้าเว็บคุณมีพื้นเข้ม) — ปรับสีตามธีมได้ */
+:root[data-theme="dark"] .card { background: #121826; border-color: #1b2435; }
+:root[data-theme="dark"] .tab { background: #121826; border-color: #2a3549; color: #dfe7f3; }
+:root[data-theme="dark"] .tab.is-active { background: #2dd4bf; color: #0a0f12; }
+:root[data-theme="dark"] .muted { color: #9fb0c3; }
+
+
 }
