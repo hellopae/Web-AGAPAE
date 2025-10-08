@@ -25,6 +25,20 @@
    ================================================== -->
 	<script src="js/modernizr.js"></script>
 	<script src="js/pace.min.js"></script>
+	<script src="js/main.js"></script>
+	<script>
+  // ถ้าใช้ lightGallery/คล้ายกัน ให้ init ทุกกริด
+  document.addEventListener('DOMContentLoaded', function(){
+    if (window.$ && $.fn.lightGallery) {
+      $('.bricks-wrapper').each(function(){
+        $(this).lightGallery({
+          selector: '.item-wrap', // หรือตามที่ธีมใช้
+        });
+      });
+    }
+  });
+</script>
+
 
    <!-- favicons
 	================================================== -->
@@ -59,7 +73,9 @@
 				<li class="current"><a class="smoothscroll" href="#home" title="">Home</a></li>
 				<li><a class="smoothscroll" href="#about" title="">About</a></li>
 				<li><a class="smoothscroll" href="#skills" title="">Skills</a></li>
-				<li><a class="smoothscroll" href="#portfolio" title="">Works</a></li>
+				<li><a class="smoothscroll" href="#portfolio" title="">Printing</a></li>
+				<li><a class="smoothscroll" href="#artist" title="">Artist</a></li>
+				<li><a class="smoothscroll" href="#ai" title="">AI</a></li>
 				<li><a class="smoothscroll" href="#stats" title="">Stats</a></li>				
 				<li><a class="smoothscroll" href="#contact" title="">Contact</a></li>						
 			</ul>		
@@ -271,7 +287,7 @@
 
 	<!-- Graphic Design
    ================================================== -->
-   <section id="portfolio">
+   <section id="portfolio" class="portfolio-section">
 
    	<div class="row narrow section-intro with-bottom-sep">
    		<div class="col-twelve">
@@ -432,9 +448,9 @@
 	
 	
 
-	<!-- portfolio2
+	<!-- Artist
    ================================================== -->
-   <section id="portfolio">
+   <section id="artist" class="portfolio-section">
 
    	<div class="row narrow section-intro with-bottom-sep">
    		<div class="col-twelve">
@@ -447,7 +463,7 @@
 
    	<div class="row portfolio-content">
    		<div class="col-twelve">
-   			<div id="folio-wrap" class="bricks-wrapper">		
+   			<div id="folio-wrap-artist" class="bricks-wrapper">		
 
 
 
@@ -455,7 +471,7 @@
 				
 				
    				<div class="brick folio-item">
-	               <div class="item-wrap animate-this" data-src="images/portfolio/gallery/g-GuanYin.jpg" data-sub-html="#01" > 	
+	               <div class="item-wrap animate-this" data-src="images/portfolio/gallery/g-GuanYin.jpg" data-sub-html="#11" > 	
 	                  <a href="#" class="overlay">
 	                  	<img src="images/portfolio/GuanYin1m.jpg" alt="GuanYin">	
 						  
@@ -468,7 +484,7 @@
 	                  </a>
 	               </div> <!-- end item-wrap -->
 						
-						<div id="01" class='hide'>
+						<div id="11" class='hide'>
 							<h4>Guān Yī : 观音</h4>
 							<p>The story goes that.
 								The Guan Yin Bodhisattva was incarnated into the human world some ten thousand years ago. She is the daughter of King Miao Zhuang of the Qingling Empire Even though the father treats his daughter badly but with gratitude in remembrance of her parents she knew that his father was sick. Guan Yin Bodhisattva returned to give up her arms and eyes to heal her father from illness. she set up a prayer for her arms and eyes restored to the original, causing the parents, as well as the courtiers who followed her very much to rejoice. and asked to study the teachings of the Buddha.</p>
@@ -479,7 +495,7 @@
 
 				
 	        		<div class="brick folio-item">
-	                <div class="item-wrap animate-this" data-src="images/portfolio/gallery/g-GuanYu.jpg" data-sub-html="#02" > 	
+	                <div class="item-wrap animate-this" data-src="images/portfolio/gallery/g-GuanYu.jpg" data-sub-html="#12" > 	
 	                  <a href="#" class="overlay">
 	                  	<img src="images/portfolio/GuanYu1m.jpg" alt="GuanYu">
 						  
@@ -492,7 +508,7 @@
 	                  </a>
 	               </div> <!-- end item-wrap -->
 						
-	               <div id="02" class='hide'>
+	               <div id="12" class='hide'>
 							<h4>Guān Yǔ : 關羽</h4>
 							<p>Guan Yu God is a symbol of loyalty. gratitude loyalty and courage
 
@@ -502,7 +518,7 @@
 
 	        			               
 					<div class="brick folio-item">
-	               <div class="item-wrap animate-this"  data-src="images/portfolio/gallery/g-Ramayana.jpg"  data-sub-html="#03" >  	
+	               <div class="item-wrap animate-this"  data-src="images/portfolio/gallery/g-Ramayana.jpg"  data-sub-html="#13" >  	
 	                  <a href="#" class="overlay">
 	                  	<img src="images/portfolio/Ramayana1m.jpg" alt="Ramayana">
 						  
@@ -515,7 +531,7 @@
 	                  </a>
 	               </div> <!-- end item-wrap -->
 
-	               <div id="03" class='hide'>
+	               <div id="13" class='hide'>
 							<h4>Ramayana</h4>
 							<p>It’s literature in a contemporary art style. that tells a parody of current Thai politics
 								The Story In the age of the great giant. And rule the city in fear. The people have difficulty living When injustice becomes law. The humans, monkeys, and ducks have to fight together to reclaim justice.</p>
@@ -526,9 +542,9 @@
 
 				
 				<div class="brick folio-item">
-	               <div class="item-wrap animate-this"  data-src="images/portfolio/gallery/g-God-of-fortune.jpg"  data-sub-html="#04">     	
+	               <div class="item-wrap animate-this"  data-src="images/portfolio/gallery/g-God-of-fortune.jpg"  data-sub-html="#14">     	
 	                  <a href="#" class="overlay">
-	                  	<img src="images/portfolio/God of fortune1m.jpg" alt="God of fortune">
+	                  	<img src="images/portfolio/God-of-fortune1m.jpg" alt="God of fortune">
 						  
 	                     <div class="item-text">	     					    
 		     					   <span class="folio-types">
@@ -539,7 +555,7 @@
 	                  </a>
 	               </div> <!-- end item-wrap -->
 
-	               <div id="04" class='hide'>
+	               <div id="14" class='hide'>
 							<h4>God of fortune : 財神</h4>
 							<p>May you be Wealthy and successful in every investment. $$$
 
@@ -553,7 +569,7 @@
 				
 				
 				<div class="brick folio-item">
-	               <div class="item-wrap animate-this"  data-src="images/portfolio/gallery/g-LordWenChang.jpg"  data-sub-html="#05">     	
+	               <div class="item-wrap animate-this"  data-src="images/portfolio/gallery/g-LordWenChang.jpg"  data-sub-html="#15">     	
 	                  <a href="#" class="overlay">
 	                  	<img src="images/portfolio/LordWenChang1m.jpg" alt="Lord Wen Chang">
 						  
@@ -566,7 +582,7 @@
 	                  </a>
 	               </div> <!-- end item-wrap -->
 
-	               <div id="05" class='hide'>
+	               <div id="15" class='hide'>
 							<h4>Lord Wen Chang : 文昌帝君</h4>
 							<p>It’s a Chinese god in a contemporary art style. Make it look more modern.
 								He is God who was appointed by the Jade Emperor To look after human beings on earth
@@ -585,7 +601,7 @@
 				
 				
 				<div class="brick folio-item">
-	               <div class="item-wrap animate-this"  data-src="images/portfolio/gallery/g-RainintheCity.jpg"  data-sub-html="#06">     	
+	               <div class="item-wrap animate-this"  data-src="images/portfolio/gallery/g-RainintheCity.jpg"  data-sub-html="#16">     	
 	                  <a href="#" class="overlay">
 	                  	<img src="images/portfolio/RainintheCity1m.jpg" alt="Rain in the City">
 						  
@@ -597,7 +613,7 @@
 		     					</div>
 					  </a>
 	               </div> <!-- end item-wrap -->
-	               <div id="06" class='hide'>
+	               <div id="16" class='hide'>
 							<h4>Rain in the City ☂️</h4>
 							<p>A pleasant ambiance in a City of lights.
 								Have fun while watching the rain and trading crypto as well.</p>
@@ -608,7 +624,7 @@
 
 
 				<div class="brick folio-item">
-	               <div class="item-wrap animate-this" data-src="images/portfolio/gallery/g-AllManga.jpg" data-sub-html="#07" > 	
+	               <div class="item-wrap animate-this" data-src="images/portfolio/gallery/g-AllManga.jpg" data-sub-html="#17" > 	
 	                  <a href="#" class="overlay">
 	                  	<img src="images/portfolio/AllManga1m.jpg" alt="AllManga">	
 							  
@@ -621,7 +637,7 @@
 	                  </a>
 	               </div> <!-- end item-wrap -->
 						
-						<div id="07" class='hide'>
+						<div id="17" class='hide'>
 							<h4>All Manga</h4>
 							<p>Fan art featuring famous Japanese manga characters.
 								
@@ -656,7 +672,7 @@
 
 	<!-- AI Design
    ================================================== -->
-   <section id="portfolio">
+   <section id="ai" class="portfolio-section">
 
    	<div class="row narrow section-intro with-bottom-sep">
    		<div class="col-twelve">
@@ -669,7 +685,7 @@
 
    	<div class="row portfolio-content">
    		<div class="col-twelve">
-   			<div id="folio-wrap" class="bricks-wrapper">		
+   			<div id="folio-wrap-ai" class="bricks-wrapper">		
 				
 				
 
