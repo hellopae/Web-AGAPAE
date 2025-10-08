@@ -2440,7 +2440,7 @@ header .header-logo a {
 }
 
 #portfolio .bricks-wrapper:before,
-#portfolio2 .bricks-wrapper:after {
+#portfolio .bricks-wrapper:after {
 	content: "";
 	display: table;
 }
