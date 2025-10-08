@@ -3180,7 +3180,38 @@ footer .footer-social li:last-child {
 		right: 0;
 	}
 
-
-
-
 }
+
+
+/* ------------------------------------------------------------------- 
+ * เพิ่ม code
+ * ------------------------------------------------------------------- */
+
+/* ใช้สไตล์เดียวกับพอร์ตหลัก */
+#artist .bricks-wrapper .brick,
+#ai .bricks-wrapper .brick {
+  float: left;
+  width: 30%;
+  padding: 0;
+  margin: 0;
+}
+
+/* ปรับ responsive เช่นเดียวกับส่วนพิมพ์ */
+@media (max-width: 900px) {
+  #artist .bricks-wrapper .brick,
+  #ai .bricks-wrapper .brick {
+    width: 48%;
+  }
+}
+
+@media (max-width: 600px) {
+  #artist .bricks-wrapper .brick,
+  #ai .bricks-wrapper .brick {
+    float: none;
+    width: 100%;
+  }
+}
+
+
+
+
