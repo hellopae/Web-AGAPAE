@@ -3018,6 +3018,39 @@ header .header-logo a {
 	color: #FFFFFF;
 }
 
+
+
+/* เพิ่ม ===== QR Code: center + fade-up ===== */
+.qr-section {
+  text-align: center;
+  margin-top: 48px;
+  margin-bottom: 64px;
+}
+
+.qrcode-img {
+  width: 220px;          /* ปรับตามใจ */
+  max-width: 65vw;       /* กันล้นจอบนมือถือ */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+/* เมื่อถูกเติมคลาส .animated ด้วย JS จะค่อยๆ โผล่ขึ้น */
+.qrcode-img.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* เล็กน้อยสำหรับจอเล็ก */
+@media (max-width: 480px) {
+  .qrcode-img { width: 180px; }
+}
+
+
+
 /* --------------------------------------------------------------- 
  * loader animation - (_layout.scss)
  * --------------------------------------------------------------- */
