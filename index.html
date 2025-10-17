@@ -1158,6 +1158,27 @@
    <script src="js/plugins.js"></script>
    <script src="js/main.js"></script>
 
+
+
+
+	<script>
+  // ให้รูป QR ค่อยๆ โผล่เมื่อเลื่อนถึง (ครั้งเดียว)
+  document.addEventListener('DOMContentLoaded', () => {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('animated');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.25 });
+
+    document.querySelectorAll('.qrcode-img').forEach(el => io.observe(el));
+  });
+</script>
+
+
+	
 </body>
 
 </html>
