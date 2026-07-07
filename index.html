@@ -441,14 +441,9 @@
     <li><a href="#viz">Work Process</a></li>
     <li><a href="#portfolio">Portfolio</a></li>
     <li><a href="#websites">Websites</a></li>
-    <li><a href="#shop">Shop</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="nav-r">
-    <button class="cart-btn" onclick="toggleCart()">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-      Cart <span class="cart-badge" id="badge">0</span>
-    </button>
     <div class="hamburger" id="hbg" onclick="toggleMob()">
       <span></span><span></span><span></span>
     </div>
@@ -459,7 +454,6 @@
   <a href="#viz" onclick="toggleMob()">Work Process</a>
   <a href="#portfolio" onclick="toggleMob()">Portfolio</a>
   <a href="#websites" onclick="toggleMob()">Websites</a>
-  <a href="#shop" onclick="toggleMob()">Shop</a>
   <a href="#contact" onclick="toggleMob()">Contact</a>
 </div>
 
@@ -474,7 +468,7 @@
     </p>
     <div class="hero-cta">
       <a href="#portfolio" class="btn-dk">View Portfolio</a>
-      <a href="#shop" class="btn-lt">Shop Collection</a>
+      <a href="#websites" class="btn-lt">View Websites</a>
     </div>
   </div>
   <div class="hero-stats">
@@ -646,19 +640,6 @@
   </div>
 </section>
 
-<!-- SHOP -->
-<section class="section" id="shop">
-  <div class="container">
-    <div class="rv" style="margin-bottom:2.5rem">
-      <div class="sec-label">Shop</div>
-      <h2 class="sec-title">Art <em>Collection</em></h2>
-      <div class="sec-line"></div>
-      <p style="color:var(--dim);font-family:var(--ft);font-size:.88rem;max-width:480px;line-height:1.8">Poster Art A3 คุณภาพสูง พิมพ์ตามสั่ง ราคาใบละ 200 บาท เลือกชมและสั่งซื้อได้เลย <span style="font-size:.78rem;color:var(--light)">(ไม่รวมกรอบรูป)</span></p>
-    </div>
-    <div class="shop-grid" id="shopGrid"></div>
-  </div>
-</section>
-
 <!-- CONTACT -->
 <section class="section" id="contact">
   <div class="container">
@@ -720,156 +701,6 @@
     </div>
   </div>
 </footer>
-
-<!-- CART DRAWER -->
-<div class="cart-mask" id="cartMask" onclick="toggleCart()"></div>
-<div class="cart-dr" id="cartDr">
-  <div class="dr-head"><h3>Shopping Cart</h3><button class="dr-close" onclick="toggleCart()">✕</button></div>
-  <div class="dr-body" id="drBody"></div>
-  <div class="dr-foot" id="drFoot" style="display:none">
-    <div class="dr-total"><span>Total</span><span id="drTotal">฿0</span></div>
-    <button class="btn-co" onclick="openCO()">Checkout →</button>
-  </div>
-</div>
-
-<!-- CHECKOUT MODAL -->
-<div class="modal-bg" id="coModal">
-  <div class="modal">
-    <div class="modal-h"><h3>ยืนยันการสั่งซื้อ</h3><button class="modal-x" onclick="closeCO()">✕</button></div>
-    <div class="modal-b">
-      <!-- Delivery form first (province needed for shipping calc) -->
-      <div style="margin-bottom:1.5rem">
-        <div class="frm-title">ข้อมูลการจัดส่ง</div>
-        <div class="frm-r">
-          <div class="frm-g"><label>ชื่อ-นามสกุล *</label><input id="oName" type="text" placeholder="ชื่อ-นามสกุล"></div>
-          <div class="frm-g"><label>เบอร์โทร *</label><input id="oPhone" type="tel" placeholder="0XX-XXX-XXXX"></div>
-          <div class="frm-g full"><label>อีเมล * <span style="font-size:.68rem;color:var(--dim);font-weight:400">(สำหรับรับการยืนยันคำสั่งซื้อ)</span></label><input id="oEmail" type="email" placeholder="example@email.com"></div>
-          <div class="frm-g full"><label>จังหวัด *</label>
-            <select id="oProvince" onchange="calcShipping()" style="padding:.55rem .75rem;border:1px solid var(--border);border-radius:var(--radius);font-family:var(--ft);font-size:.82rem;background:var(--white);color:var(--ink);cursor:pointer">
-              <option value="">— เลือกจังหวัด —</option>
-              <optgroup label="กรุงเทพฯ และปริมณฑล (ค่าส่ง ฿40)">
-                <option value="bkk">กรุงเทพมหานคร</option>
-                <option value="bkk">นนทบุรี</option>
-                <option value="bkk">ปทุมธานี</option>
-                <option value="bkk">สมุทรปราการ</option>
-                <option value="bkk">สมุทรสาคร</option>
-                <option value="bkk">นครปฐม</option>
-              </optgroup>
-              <optgroup label="ต่างจังหวัด (ค่าส่ง ฿60)">
-                <option value="upc">กระบี่</option><option value="upc">กาญจนบุรี</option><option value="upc">กาฬสินธุ์</option><option value="upc">กำแพงเพชร</option><option value="upc">ขอนแก่น</option><option value="upc">จันทบุรี</option><option value="upc">ฉะเชิงเทรา</option><option value="upc">ชลบุรี</option><option value="upc">ชัยนาท</option><option value="upc">ชัยภูมิ</option><option value="upc">ชุมพร</option><option value="upc">เชียงราย</option><option value="upc">เชียงใหม่</option><option value="upc">ตรัง</option><option value="upc">ตราด</option><option value="upc">ตาก</option><option value="upc">นครนายก</option><option value="upc">นครพนม</option><option value="upc">นครราชสีมา</option><option value="upc">นครศรีธรรมราช</option><option value="upc">นครสวรรค์</option><option value="upc">นราธิวาส</option><option value="upc">น่าน</option><option value="upc">บึงกาฬ</option><option value="upc">บุรีรัมย์</option><option value="upc">ประจวบคีรีขันธ์</option><option value="upc">ปราจีนบุรี</option><option value="upc">ปัตตานี</option><option value="upc">พระนครศรีอยุธยา</option><option value="upc">พะเยา</option><option value="upc">พังงา</option><option value="upc">พัทลุง</option><option value="upc">พิจิตร</option><option value="upc">พิษณุโลก</option><option value="upc">เพชรบุรี</option><option value="upc">เพชรบูรณ์</option><option value="upc">แพร่</option><option value="upc">ภูเก็ต</option><option value="upc">มหาสารคาม</option><option value="upc">มุกดาหาร</option><option value="upc">แม่ฮ่องสอน</option><option value="upc">ยโสธร</option><option value="upc">ยะลา</option><option value="upc">ร้อยเอ็ด</option><option value="upc">ระนอง</option><option value="upc">ระยอง</option><option value="upc">ราชบุรี</option><option value="upc">ลพบุรี</option><option value="upc">ลำปาง</option><option value="upc">ลำพูน</option><option value="upc">เลย</option><option value="upc">ศรีสะเกษ</option><option value="upc">สกลนคร</option><option value="upc">สงขลา</option><option value="upc">สตูล</option><option value="upc">สระแก้ว</option><option value="upc">สระบุรี</option><option value="upc">สิงห์บุรี</option><option value="upc">สุโขทัย</option><option value="upc">สุพรรณบุรี</option><option value="upc">สุราษฎร์ธานี</option><option value="upc">สุรินทร์</option><option value="upc">หนองคาย</option><option value="upc">หนองบัวลำภู</option><option value="upc">อ่างทอง</option><option value="upc">อำนาจเจริญ</option><option value="upc">อุดรธานี</option><option value="upc">อุตรดิตถ์</option><option value="upc">อุทัยธานี</option><option value="upc">อุบลราชธานี</option>
-              </optgroup>
-            </select>
-          </div>
-          <div class="frm-g full"><label>ที่อยู่จัดส่ง *</label><textarea id="oAddr" placeholder="บ้านเลขที่ ถนน แขวง/ตำบล เขต/อำเภอ รหัสไปรษณีย์"></textarea></div>
-          <div class="frm-g full"><label>หมายเหตุ</label><input id="oNote" type="text" placeholder="รายละเอียดพิเศษ (ถ้ามี)"></div>
-        </div>
-      </div>
-      <!-- Order Summary -->
-      <div class="co-summary" style="margin-bottom:1.5rem">
-        <div class="co-sum-title">สรุปยอดที่ต้องโอน</div>
-        <div id="coItems"></div>
-        <hr class="co-div">
-        <div class="co-total" style="font-size:.82rem;color:var(--dim)"><span>ค่าสินค้า</span><span id="coSubtotal">฿0</span></div>
-        <div class="co-total" style="font-size:.82rem;color:var(--dim);margin-top:.4rem"><span>ค่าจัดส่ง <span id="coShipLabel" style="font-size:.7rem">(เลือกจังหวัด)</span></span><span id="coShip">฿—</span></div>
-        <hr class="co-div" style="margin:.8rem 0">
-        <div class="co-total"><span style="font-weight:700;font-size:.9rem">ยอดที่ต้องโอน</span><span id="coTotal" style="font-family:var(--fh);font-size:1.3rem;color:var(--gold)">฿—</span></div>
-      </div>
-      <button class="btn-order" onclick="doOrder()">✦ ยืนยันการสั่งซื้อ</button>
-    </div>
-  </div>
-</div>
-
-<!-- SUCCESS / ORDER CONFIRMED -->
-<div class="suc-modal" id="sucModal">
-  <div class="suc-box" style="max-width:420px;width:90vw">
-    <div class="suc-ico">✓</div>
-    <h3>ขอบคุณที่สั่งซื้อสินค้า!</h3>
-    <p id="sucMsg">ขอบคุณสำหรับการสั่งซื้อ</p>
-    <span class="suc-id" id="sucId">#AGP00001</span>
-    <div style="margin:1.25rem 0;padding:1rem;background:var(--bg2);border-radius:var(--radius);text-align:left;font-size:.8rem;color:var(--dim);line-height:1.8">
-      📧 เราได้ส่งอีเมลยืนยันคำสั่งซื้อไปให้คุณแล้ว<br>
-      💳 กรุณาโอนเงินและแนบสลิปเพื่อให้เราดำเนินการจัดส่ง
-    </div>
-    <button class="btn-order" style="margin-bottom:.75rem" onclick="openSlipFromSuccess()">📎 แนบสลิปโอนเงิน</button>
-    <br>
-    <button class="btn-suc" onclick="closeSuc()">ปิด</button>
-  </div>
-</div>
-
-<!-- SLIP UPLOAD MODAL — uses real POST form so file attachment works -->
-<div class="modal-bg" id="slipModal">
-  <div class="modal" style="max-width:480px">
-    <div class="modal-h"><h3>📎 แนบสลิปโอนเงิน</h3><button class="modal-x" onclick="closeSlip()">✕</button></div>
-    <div class="modal-b">
-      <div class="co-summary" style="margin-bottom:1.25rem">
-        <div class="co-sum-title">สรุปคำสั่งซื้อ</div>
-        <div id="slipItems"></div>
-        <hr class="co-div">
-        <div class="co-total"><span style="font-weight:700">ยอดที่ต้องโอน</span><span id="slipTotal" style="font-family:var(--fh);font-size:1.2rem;color:var(--gold)">฿0</span></div>
-      </div>
-      <!-- Payment info -->
-      <div style="margin-bottom:1.5rem">
-        <div class="pay-title">ช่องทางการชำระเงิน</div>
-        <div class="pay-bank">
-          <div class="bank-lgo" style="background:#1a6b3c">KBANK</div>
-          <div>
-            <div class="bank-n">ธนาคารกสิกรไทย · สาขาถนนประชาอุทิศ</div>
-            <div class="bank-a">705-2-85762-1</div>
-            <div class="bank-o">นายกิตติ์ธเนศ ฤทธิพรพสิษฐ์</div>
-          </div>
-        </div>
-        <div class="pp-box">
-          <div class="qr-box" style="width:72px;height:72px">
-            <img src="Pic/qrcode.png" alt="PromptPay QR" style="width:100%;height:100%;object-fit:contain;border-radius:4px" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <div style="display:none;width:100%;height:100%;align-items:center;justify-content:center;font-size:1.6rem">📱</div>
-          </div>
-          <div class="pp-i">
-            <p>PromptPay / พร้อมเพย์</p>
-            <strong>095-652-9929</strong>
-            <p style="margin-top:.25rem;font-size:.7rem;color:var(--light)">สแกน QR Code หรือโอนผ่านเบอร์</p>
-          </div>
-        </div>
-        <p class="pay-note" style="margin-bottom:.6rem">โอนเงินเสร็จแล้ว กรุณาแนบสลิปด้านล่าง</p>
-      </div>
-      <!-- Regular POST form: supports file attachment in email -->
-      <form id="slipPostForm" action="https://formsubmit.co/agapaedesign@gmail.com" method="POST" enctype="multipart/form-data">
-        <input type="hidden" name="_subject"      id="hf_subject">
-        <input type="hidden" name="_replyto"      id="hf_replyto">
-        <input type="hidden" name="_autoresponse" id="hf_autoresponse">
-        <input type="hidden" name="_template"     value="table">
-        <input type="hidden" name="_next"         id="hf_next">
-        <input type="hidden" name="_captcha"      value="false">
-        <input type="hidden" name="Order_ID"      id="hf_order_id">
-        <input type="hidden" name="ชื่อลูกค้า"   id="hf_name">
-        <input type="hidden" name="อีเมลลูกค้า"  id="hf_email">
-        <input type="hidden" name="เบอร์โทร"     id="hf_phone">
-        <input type="hidden" name="จังหวัด"       id="hf_province">
-        <input type="hidden" name="ที่อยู่จัดส่ง" id="hf_addr">
-        <input type="hidden" name="รายการสินค้า"  id="hf_items">
-        <input type="hidden" name="ค่าสินค้า"    id="hf_subtotal">
-        <input type="hidden" name="ค่าจัดส่ง"    id="hf_ship">
-        <input type="hidden" name="ยอดรวม"        id="hf_grand">
-        <div class="frm-g full" style="margin-bottom:1.25rem">
-          <label>แนบไฟล์สลิป *</label>
-          <div id="slipDropZone" onclick="document.getElementById('slipFile').click()" style="border:2px dashed var(--border);border-radius:var(--radius);padding:1.75rem 1rem;text-align:center;cursor:pointer;transition:var(--tr);background:var(--bg2)">
-            <input type="file" id="slipFile" name="สลิปโอนเงิน" accept="image/*,.pdf" style="display:none" onchange="previewSlip(this)" required>
-            <div id="slipPreviewArea">
-              <div style="font-size:2.2rem;margin-bottom:.5rem">🧾</div>
-              <div style="font-size:.8rem;color:var(--dim);line-height:1.6">คลิกเพื่อเลือกไฟล์<br><span style="font-size:.7rem">รองรับ JPG, PNG, PDF</span></div>
-            </div>
-          </div>
-        </div>
-        <div id="slipStatusMsg" style="display:none;padding:.75rem;border-radius:var(--radius);font-size:.8rem;margin-bottom:1rem"></div>
-        <button type="button" class="btn-order" id="slipSubmitBtn" onclick="submitSlip()">✦ ส่งสลิปยืนยันการโอน</button>
-      </form>
-    </div>
-  </div>
-</div>
-
-<!-- Toast: แสดงหลัง redirect กลับจาก FormSubmit -->
-<div id="slipSentToast" style="position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(80px);background:#16a34a;color:#fff;padding:.8rem 1.75rem;border-radius:50px;font-size:.82rem;z-index:9999;opacity:0;transition:opacity .4s,transform .4s;pointer-events:none;white-space:nowrap;box-shadow:0 4px 24px rgba(0,0,0,.18)">
-  ✅ ส่งสลิปเรียบร้อยแล้ว — รอยืนยันจากทีมงานภายใน 1-2 วันทำการ
-</div>
 
 <!-- ═══════════════════════════════════════════════════ -->
 <script>
@@ -959,14 +790,6 @@ const WEB_ITEMS = [
 const CAT_LABELS = {printing:'Printing',artist:'Artist',ai:'AI Generated',website:'Website'};
 const CAT_COLORS = {printing:'#b89660',artist:'#d4b98a',ai:'#cccbc7',website:'#6b7280'};
 
-const PRODUCTS = [
-  {id:1,name:'Poster A3 — No.1',cat:'Poster Art A3',price:200,img:'product/product1.png',badge:'',desc:'Fine Art Poster A3 พิมพ์คุณภาพสูง ขนาด A3 (29.7×42 cm)'},
-  {id:2,name:'Poster A3 — No.2',cat:'Poster Art A3',price:200,img:'product/product2.png',badge:'',desc:'Fine Art Poster A3 พิมพ์คุณภาพสูง ขนาด A3 (29.7×42 cm)'},
-  {id:3,name:'Poster A3 — No.3',cat:'Poster Art A3',price:200,img:'product/product3.png',badge:'',desc:'Fine Art Poster A3 พิมพ์คุณภาพสูง ขนาด A3 (29.7×42 cm)'},
-  {id:4,name:'Poster A3 — No.4',cat:'Poster Art A3',price:200,img:'product/product4.png',badge:'',desc:'Fine Art Poster A3 พิมพ์คุณภาพสูง ขนาด A3 (29.7×42 cm)'},
-  {id:5,name:'Poster A3 — No.5',cat:'Poster Art A3',price:200,img:'product/product5.jpg',badge:'Best Seller',desc:'Fine Art Poster A3 พิมพ์คุณภาพสูง ขนาด A3 (29.7×42 cm)'},
-  {id:6,name:'Poster A3 — No.6',cat:'Poster Art A3',price:200,img:'product/product6.jpg',badge:'New',desc:'Fine Art Poster A3 พิมพ์คุณภาพสูง ขนาด A3 (29.7×42 cm)'},
-];
 
 // ── PORTFOLIO ─────────────────────────────────────────
 let visItems = [...PORT_ITEMS], lbIdx = 0;
@@ -1021,311 +844,6 @@ document.addEventListener('keydown',e=>{
   if(e.key==='ArrowRight')lbMove(1);
   if(e.key==='Escape')lbClose();
 });
-
-// ── SHOP ─────────────────────────────────────────────
-function renderShop(){
-  document.getElementById('shopGrid').innerHTML=PRODUCTS.map((p,i)=>`
-    <div class="prod rv d${(i%4)+1}">
-      <div class="prod-img">
-        <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.style.opacity='.15'">
-        ${p.badge?`<div class="prod-badge">${p.badge}</div>`:''}
-      </div>
-      <div class="prod-body">
-        <div class="prod-cat">${p.cat}</div>
-        <div class="prod-name">${p.name}</div>
-        <div class="prod-desc">${p.desc}</div>
-        <div class="prod-foot">
-          <div class="prod-price">฿${p.price.toLocaleString()} <small>บาท</small></div>
-          <button class="btn-cart" onclick="addCart(${p.id})">+ ใส่ตะกร้า</button>
-        </div>
-      </div>
-    </div>
-  `).join('');
-  observeAll();
-}
-
-// ── CART ─────────────────────────────────────────────
-let cart=[];
-function addCart(id){
-  const p=PRODUCTS.find(x=>x.id===id),ex=cart.find(x=>x.id===id);
-  if(ex)ex.qty++;else cart.push({...p,qty:1});
-  updateCart();
-  if(!document.getElementById('cartDr').classList.contains('on'))toggleCart();
-}
-function qtyChange(id,d){
-  const item=cart.find(x=>x.id===id);if(!item)return;
-  item.qty+=d;if(item.qty<=0)cart=cart.filter(x=>x.id!==id);
-  updateCart();
-}
-function rmCart(id){cart=cart.filter(x=>x.id!==id);updateCart();}
-function updateCart(){
-  const total=cart.reduce((s,c)=>s+c.price*c.qty,0);
-  const count=cart.reduce((s,c)=>s+c.qty,0);
-  const badge=document.getElementById('badge');
-  badge.textContent=count;count>0?badge.classList.add('on'):badge.classList.remove('on');
-  const body=document.getElementById('drBody'),foot=document.getElementById('drFoot');
-  if(!cart.length){
-    body.innerHTML=`<div class="dr-empty"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg><p>ตะกร้าว่างเปล่า</p></div>`;
-    foot.style.display='none';
-  }else{
-    body.innerHTML=cart.map(c=>`
-      <div class="ci">
-        <div class="ci-img"><img src="${c.img}" alt="${c.name}" onerror="this.style.opacity='.15'"></div>
-        <div class="ci-info">
-          <div class="ci-name">${c.name}</div>
-          <div class="ci-price">฿${c.price.toLocaleString()}</div>
-          <div class="ci-qty">
-            <button class="q-btn" onclick="qtyChange(${c.id},-1)">−</button>
-            <span class="q-n">${c.qty}</span>
-            <button class="q-btn" onclick="qtyChange(${c.id},1)">+</button>
-          </div>
-        </div>
-        <button class="ci-rm" onclick="rmCart(${c.id})">✕</button>
-      </div>
-    `).join('');
-    foot.style.display='block';
-    document.getElementById('drTotal').textContent='฿'+total.toLocaleString();
-  }
-}
-function toggleCart(){
-  document.getElementById('cartMask').classList.toggle('on');
-  document.getElementById('cartDr').classList.toggle('on');
-  document.body.style.overflow=document.getElementById('cartDr').classList.contains('on')?'hidden':'';
-}
-function getShipping(){
-  const pv=document.getElementById('oProvince');
-  if(!pv||!pv.value)return null;
-  return pv.value==='bkk'?40:60;
-}
-function calcShipping(){
-  const subtotal=cart.reduce((s,c)=>s+c.price*c.qty,0);
-  const ship=getShipping();
-  const shipEl=document.getElementById('coShip');
-  const labelEl=document.getElementById('coShipLabel');
-  const totalEl=document.getElementById('coTotal');
-  if(ship===null){
-    if(shipEl)shipEl.textContent='฿—';
-    if(labelEl)labelEl.textContent='(เลือกจังหวัด)';
-    if(totalEl)totalEl.textContent='฿—';
-  } else {
-    if(shipEl)shipEl.textContent='฿'+ship;
-    if(labelEl)labelEl.textContent=ship===40?'(กรุงเทพฯ/ปริมณฑล)':'(ต่างจังหวัด)';
-    if(totalEl)totalEl.textContent='฿'+(subtotal+ship).toLocaleString();
-  }
-}
-function openCO(){
-  if(!cart.length)return;
-  const subtotal=cart.reduce((s,c)=>s+c.price*c.qty,0);
-  document.getElementById('coItems').innerHTML=cart.map(c=>`<div class="co-row"><span>${c.name} ×${c.qty}</span><span>฿${(c.price*c.qty).toLocaleString()}</span></div>`).join('');
-  document.getElementById('coSubtotal').textContent='฿'+subtotal.toLocaleString();
-  calcShipping();
-  document.getElementById('coModal').classList.add('on');
-}
-function closeCO(){document.getElementById('coModal').classList.remove('on');}
-
-// ── ORDER DATA (shared between checkout → slip modal) ──
-let currentOrder = {};
-
-async function doOrder(){
-  const name  = document.getElementById('oName').value.trim();
-  const phone = document.getElementById('oPhone').value.trim();
-  const email = document.getElementById('oEmail').value.trim();
-  const addr  = document.getElementById('oAddr').value.trim();
-  const prov  = document.getElementById('oProvince');
-  const province = prov ? prov.options[prov.selectedIndex]?.text : '';
-  const ship  = getShipping();
-  if(!name||!phone||!email||!addr){
-    alert('กรุณากรอกข้อมูลให้ครบ (ชื่อ, เบอร์โทร, อีเมล, ที่อยู่)');return;
-  }
-  if(!/\S+@\S+\.\S+/.test(email)){alert('กรุณากรอกอีเมลให้ถูกต้อง');return;}
-  if(ship===null){alert('กรุณาเลือกจังหวัดเพื่อคำนวณค่าจัดส่ง');return;}
-
-  const subtotal = cart.reduce((s,c)=>s+c.price*c.qty,0);
-  const grand    = subtotal + ship;
-  const oid      = 'AGP'+String(Date.now()).slice(-6);
-  currentOrder   = {id:oid,name,phone,email,addr,province,ship,subtotal,grand,
-    items:[...cart],
-    itemsText:cart.map(c=>`${c.name} ×${c.qty} = ฿${c.price*c.qty}`).join(', ')
-  };
-
-  // ── ส่งอีเมลยืนยันคำสั่งซื้อไปหาลูกค้า (ผ่าน FormSubmit) ──
-  const confirmReply =
-    `สวัสดีคุณ ${name},\n\n` +
-    `ขอบคุณที่สั่งซื้อสินค้ากับ AGAPAE Design 🙏\n` +
-    `หมายเลขคำสั่งซื้อ: #${oid}\n\n` +
-    `📦 รายการสินค้า:\n${currentOrder.itemsText}\n\n` +
-    `💰 ค่าสินค้า: ฿${subtotal}  |  ค่าจัดส่ง (${province}): ฿${ship}\n` +
-    `✅ ยอดที่ต้องโอน: ฿${grand.toLocaleString()}\n\n` +
-    `📍 ที่อยู่จัดส่ง: ${addr}\n\n` +
-    `กรุณาโอนเงินมาที่:\n` +
-    `ธนาคารกสิกรไทย สาขาถนนประชาอุทิศ  เลขบัญชี 705-2-85762-1  นายกิตติ์ธเนศ ฤทธิพรพสิษฐ์\n` +
-    `หรือ PromptPay: 095-652-9929\n\n` +
-    `📎 ส่งสลิปโอนเงิน:\n` +
-    `กด "Reply / ตอบกลับ" อีเมลนี้ แล้วแนบรูปสลิปมาได้เลย\n` +
-    `หรือส่งมาที่: agapaedesign@gmail.com\n\n` +
-    `ทีมงานจะยืนยันการชำระเงินและดำเนินการจัดส่งภายใน 1-2 วันทำการ\n\n` +
-    `ขอบคุณมากครับ — AGAPAE Design`;
-
-  try{
-    const fd=new FormData();
-    fd.append('_subject',`✅ ยืนยันคำสั่งซื้อ #${oid} — AGAPAE Design`);
-    fd.append('_replyto','agapaedesign@gmail.com');
-    fd.append('_autoresponse', confirmReply);
-    fd.append('_template','table');
-    fd.append('Order_ID', oid);
-    fd.append('ชื่อลูกค้า', name);
-    fd.append('อีเมลลูกค้า', email);
-    fd.append('เบอร์โทร', phone);
-    fd.append('จังหวัด', province);
-    fd.append('ที่อยู่จัดส่ง', addr);
-    fd.append('รายการสินค้า', currentOrder.itemsText);
-    fd.append('ยอดรวม', '฿'+grand);
-    fd.append('💳 ช่องทางชำระเงิน', 'KBANK 705-2-85762-1 · นายกิตติ์ธเนศ ฤทธิพรพสิษฐ์ (สาขาถนนประชาอุทิศ) | PromptPay 095-652-9929');
-    fd.append('📎 ส่งสลิปโอนเงิน', `กด Reply ตอบกลับอีเมลนี้แล้วแนบรูปสลิปมาได้เลย หรือส่งมาที่ agapaedesign@gmail.com ระบุ Order #${oid}`);
-    // [1] ส่งยืนยันคำสั่งซื้อไปหาลูกค้า
-    await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(email)}`,{method:'POST',body:fd,headers:{'Accept':'application/json'}});
-    // [2] แจ้งคำสั่งซื้อใหม่มาที่ร้าน agapaedesign@gmail.com
-    const fd2=new FormData();
-    fd2.append('_subject',`🛒 คำสั่งซื้อใหม่ #${oid} — ${name}`);
-    fd2.append('_replyto', email);
-    fd2.append('_template','table');
-    fd2.append('Order_ID', oid);
-    fd2.append('ชื่อลูกค้า', name);
-    fd2.append('อีเมลลูกค้า', email);
-    fd2.append('เบอร์โทร', phone);
-    fd2.append('จังหวัด', province);
-    fd2.append('ที่อยู่จัดส่ง', addr);
-    fd2.append('รายการสินค้า', currentOrder.itemsText);
-    fd2.append('ยอดรวม', '฿'+grand);
-    await fetch('https://formsubmit.co/ajax/agapaedesign@gmail.com',{method:'POST',body:fd2,headers:{'Accept':'application/json'}});
-  }catch(_){}  // ไม่ block ถ้า email ส่งไม่ได้
-
-  // ── แสดง success modal ──
-  document.getElementById('sucId').textContent = '#'+oid;
-  document.getElementById('sucMsg').innerHTML =
-    `ขอบคุณ <strong>${name}</strong> ที่ไว้วางใจ AGAPAE Design 🙏<br>` +
-    `<span style="font-size:.78rem;color:var(--dim)">ยอดที่ต้องโอน: <strong style="color:#b89660">฿${grand.toLocaleString()}</strong> · ส่งอีเมลยืนยันไปที่ <strong>${email}</strong> แล้ว</span>`;
-
-  // prepare slip modal
-  document.getElementById('slipItems').innerHTML =
-    cart.map(c=>`<div class="co-row"><span>${c.name} ×${c.qty}</span><span>฿${(c.price*c.qty).toLocaleString()}</span></div>`).join('') +
-    `<div class="co-row" style="font-size:.78rem;color:var(--dim)"><span>ค่าจัดส่ง (${province})</span><span>฿${ship}</span></div>`;
-  document.getElementById('slipTotal').textContent = '฿'+grand.toLocaleString();
-  resetSlipForm();
-
-  // clear cart & form
-  cart=[];updateCart();
-  ['oName','oPhone','oEmail','oAddr','oNote'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
-  if(prov)prov.value=''; calcShipping();
-
-  closeCO();
-  document.getElementById('sucModal').classList.add('on');
-}
-
-function resetSlipForm(){
-  const fi=document.getElementById('slipFile');if(fi)fi.value='';
-  const pa=document.getElementById('slipPreviewArea');
-  if(pa)pa.innerHTML=`<div style="font-size:2.2rem;margin-bottom:.5rem">🧾</div><div style="font-size:.8rem;color:var(--dim);line-height:1.6">คลิกเพื่อเลือกไฟล์<br><span style="font-size:.7rem">รองรับ JPG, PNG, PDF (สูงสุด 5MB)</span></div>`;
-  const st=document.getElementById('slipStatusMsg');if(st)st.style.display='none';
-  const btn=document.getElementById('slipSubmitBtn');if(btn){btn.textContent='✦ ส่งสลิปยืนยันการโอน';btn.disabled=false;}
-}
-
-function openSlipFromSuccess(){
-  document.getElementById('sucModal').classList.remove('on');
-  document.getElementById('slipModal').classList.add('on');
-}
-
-function closeSlip(){document.getElementById('slipModal').classList.remove('on');}
-
-function previewSlip(input){
-  const file=input.files[0];
-  if(!file)return;
-  const prev=document.getElementById('slipPreviewArea');
-  if(file.type.startsWith('image/')){
-    const reader=new FileReader();
-    reader.onload=e=>{
-      prev.innerHTML=`<img src="${e.target.result}" style="max-height:140px;border-radius:6px;object-fit:contain"><div style="font-size:.72rem;color:var(--dim);margin-top:.4rem">${file.name}</div>`;
-    };
-    reader.readAsDataURL(file);
-  } else {
-    prev.innerHTML=`<div style="font-size:2rem">📄</div><div style="font-size:.72rem;color:var(--dim);margin-top:.3rem">${file.name}</div>`;
-  }
-}
-
-async function submitSlip(){
-  const file = document.getElementById('slipFile').files[0];
-  const statusEl = document.getElementById('slipStatusMsg');
-  const errStyle = 'display:block;background:#fef2f2;color:#dc2626;border:1px solid #fecaca;padding:.75rem;border-radius:var(--radius)';
-  if(!file){statusEl.style.cssText=errStyle;statusEl.textContent='⚠️ กรุณาแนบสลิปโอนเงินก่อน';return;}
-
-  const btn = document.getElementById('slipSubmitBtn');
-  btn.textContent = '⏳ กำลังส่ง...'; btn.disabled = true;
-  statusEl.style.display = 'none';
-
-  // auto-reply to customer when slip is received
-  const slipReply =
-    `สวัสดีคุณ ${currentOrder.name},\n\n` +
-    `✅ เราได้รับสลิปโอนเงินสำหรับคำสั่งซื้อ #${currentOrder.id} เรียบร้อยแล้ว!\n\n` +
-    `💰 ยอดที่โอน: ฿${currentOrder.grand.toLocaleString()}\n` +
-    `📍 ที่อยู่จัดส่ง: ${currentOrder.addr}\n\n` +
-    `🚚 ทีมงาน AGAPAE Design กำลังดำเนินการเตรียมพัสดุและจัดส่งให้ท่านภายใน 1-2 วันทำการ\n` +
-    `เมื่อจัดส่งแล้วเราจะแจ้งเลขพัสดุให้ทราบ\n\n` +
-    `หากมีข้อสงสัยกรุณาติดต่อ agapaedesign@gmail.com\n\n` +
-    `ขอบคุณมากครับ — AGAPAE Design`;
-
-  // populate hidden fields in the POST form
-  document.getElementById('hf_subject').value      = `📎 สลิปโอนเงิน #${currentOrder.id} — ${currentOrder.name} (฿${currentOrder.grand.toLocaleString()})`;
-  document.getElementById('hf_replyto').value      = currentOrder.email;
-  document.getElementById('hf_autoresponse').value = slipReply;
-  document.getElementById('hf_next').value         = `${location.origin}${location.pathname}?slipsent=1&oid=${currentOrder.id}`;
-  document.getElementById('hf_order_id').value     = currentOrder.id;
-  document.getElementById('hf_name').value         = currentOrder.name;
-  document.getElementById('hf_email').value        = currentOrder.email;
-  document.getElementById('hf_phone').value        = currentOrder.phone;
-  document.getElementById('hf_province').value     = currentOrder.province;
-  document.getElementById('hf_addr').value         = currentOrder.addr;
-  document.getElementById('hf_items').value        = currentOrder.itemsText;
-  document.getElementById('hf_subtotal').value     = '฿' + currentOrder.subtotal;
-  document.getElementById('hf_ship').value         = '฿' + currentOrder.ship;
-  document.getElementById('hf_grand').value        = '฿' + currentOrder.grand;
-
-  // [2] ส่งอีเมลยืนยันรับสลิปไปหาลูกค้า (AJAX ก่อน submit form)
-  try{
-    const fdCust=new FormData();
-    fdCust.append('_subject',`✅ ได้รับสลิปแล้ว #${currentOrder.id} — AGAPAE Design`);
-    fdCust.append('_template','table');
-    fdCust.append('Order_ID', currentOrder.id);
-    fdCust.append('สถานะ', '✅ ได้รับสลิปโอนเงินเรียบร้อย');
-    fdCust.append('ชื่อลูกค้า', currentOrder.name);
-    fdCust.append('ยอดรวม', '฿'+currentOrder.grand.toLocaleString());
-    fdCust.append('ที่อยู่จัดส่ง', currentOrder.addr);
-    fdCust.append('หมายเหตุ', 'ทีมงานจะตรวจสอบการชำระเงินและดำเนินการจัดส่งภายใน 1-2 วันทำการ');
-    await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(currentOrder.email)}`,{method:'POST',body:fdCust,headers:{'Accept':'application/json'}});
-  }catch(_){}
-  // [1] submit POST form → ส่งสลิป+ข้อมูลมาที่ร้าน agapaedesign@gmail.com
-  document.getElementById('slipPostForm').submit();
-}
-
-// ── Check URL after redirect back from FormSubmit (slip sent) ──
-(function checkSlipRedirect(){
-  const p = new URLSearchParams(location.search);
-  if(p.get('slipsent') === '1'){
-    history.replaceState(null, '', location.pathname); // clean URL
-    const toast = document.getElementById('slipSentToast');
-    if(toast){
-      toast.style.opacity = '1';
-      toast.style.transform = 'translateX(-50%) translateY(0)';
-      setTimeout(()=>{toast.style.opacity='0';toast.style.transform='translateX(-50%) translateY(80px)';}, 5000);
-    }
-  }
-})();
-function closeSuc(){
-  document.getElementById('sucModal').classList.remove('on');
-  document.body.style.overflow='';
-  // restore slip btn for next order
-  const slipBtn=document.querySelector('#sucModal .btn-order');
-  if(slipBtn)slipBtn.style.display='';
-}
 
 // ── CONTACT FORM ─────────────────────────────────────
 function sendMsg(e){
@@ -1528,9 +1046,7 @@ function renderWebProjects(){
 
 // ── INIT ─────────────────────────────────────────────
 renderPort();
-renderShop();
 renderWebProjects();
-updateCart();
 </script>
 </body>
 </html>
